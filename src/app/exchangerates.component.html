@@ -1,0 +1,29 @@
+<div>
+    <label for="base">Base :</label>
+    <select id="base"  >
+    <option *ngFor="let base of currencies" [value]="base">{{base}}</option>
+    </select>
+
+    <label for="date_history">Date :</label>
+    <input type="date" id="date_history">
+
+    <input type="button" (click)="getExchangeRates(base,date_history)" value="Display">
+        <div>
+            <table>
+                <tr>
+                    <th>Currency <button 
+                        class="glyphicon glyphicon-sort" 
+                        type="button" 
+                        (click)="sort()">
+                    </button></th>
+                    <th>Buy</th>
+                    <th>Sell</th>
+                </tr>
+                <tr *ngFor="let item of this.rates" >
+                    <td>{{item.currency}}</td>
+                    <td>{{item.buy}}</td>
+                    <td>{{item.sell}}</td>
+                </tr> 
+            </table>
+        </div>
+    </div>
